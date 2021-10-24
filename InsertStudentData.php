@@ -31,23 +31,20 @@ include 'DBConfig.php';
     $jsonMsg = json_encode($Mensaje);
     echo $jsonMsg;
  } else {
-    $Sql_Query = "insert into StudentDetailsTable (student_name,student_class,student_phone_num,student_email) values ('$S_Name','$S_Class','$S_Phone_Num','$S_Email')";
- 
- 
- if(mysqli_query($con,$Sql_Query)){
- 
-$MSG = 'Estudiante registrado correctamente...' ;
- 
-$json = json_encode($MSG);
- 
+   $Sql_Query = "insert into StudentDetailsTable (student_name,student_class,student_phone_num,student_email) values ('$S_Name','$S_Class','$S_Phone_Num','$S_Email')";
 
- echo $json ;
- 
- }
- else{
- 
- echo 'Inténtelo de nuevo...';
- 
- }
- mysqli_close($con);
- }
+
+   if (mysqli_query($con, $Sql_Query)) {
+
+      $MSG = 'Estudiante registrado correctamente...';
+
+      $json = json_encode($MSG);
+
+
+      echo $json;
+   } else {
+
+      echo 'Inténtelo de nuevo...';
+   }
+   mysqli_close($con);
+}
